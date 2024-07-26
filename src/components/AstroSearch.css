@@ -1,0 +1,20 @@
+:root {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: theme('colors.base-content');
+    --pagefind-ui-text: theme('colors.base-content');
+    --pagefind-ui-background: theme('colors.base-100');
+    --pagefind-ui-border: theme('colors.gray.300');
+    --pagefind-ui-tag: theme('colors.neutral');
+    --pagefind-ui-border-width: 2px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: sans-serif;
+}
+
+/* don't show the thumbnail on mobile */
+@media (max-width: 480px) {
+    .pagefind-ui__result-thumb {
+        display: none;
+    }
+}

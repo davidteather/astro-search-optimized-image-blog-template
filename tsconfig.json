@@ -1,0 +1,13 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strictNullChecks": false,
+  },
+  "exclude": [
+    // The pagefind has some ts warnings
+    "dist/pagefind/pagefind-ui.js",
+    "dist/pagefind/pagefind.js",
+    "dist/pagefind/pagefind-modular-ui.js",
+    "dist/pagefind/*"
+  ]
+}

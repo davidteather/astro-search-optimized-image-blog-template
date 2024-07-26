@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import RootLayout from "../../layouts/RootLayout.astro";
+import { Image } from "astro:assets";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<RootLayout>
+  <section data-pagefind-ignore>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {posts.map((post) => (
+        <li>
+          <a
+            href={`/blog/${post.slug}/`}
+            class="block transform transition duration-300 ease-in-out hover:scale-100 md:hover:scale-110"
+          >
+            <div
+              class="card bordered flex flex-row items-start bg-base-100 hover:bg-base-200 transition duration-300"
+            >
+              <figure class="flex-shrink-0 p-4">
+                {post.data.heroImage && (
+                <Image
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  class="h-32 w-32 rounded-lg object-cover"
+                  style={{ minHeight: "128px", minWidth: "128px" }}
+                />)}
+              </figure>
+              <div class="card-body ml-4 flex-grow">
+                <h2 class="card-title">
+                  {post.data.title}
+                  <div class="badge badge-secondary ml-2">
+                    {new Date(post.data.pubDate).toLocaleDateString()}
+                  </div>
+                </h2>
+              </div>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</RootLayout>
