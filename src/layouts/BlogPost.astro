@@ -19,7 +19,7 @@ const { title, pubDate, updatedDate, heroImage } = Astro.props;
         {
           heroImage && (
             <Image
-              src={heroImage}
+              src={heroImage as any}
               alt=""
               data-pagefind-meta="image[src], image_alt[alt]"
             />

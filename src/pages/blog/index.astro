@@ -23,7 +23,7 @@ const posts = (await getCollection("blog")).sort(
               <figure class="flex-shrink-0 p-4">
                 {post.data.heroImage && (
                 <Image
-                  src={post.data.heroImage}
+                  src={post.data.heroImage as any}
                   alt={post.data.title}
                   class="h-32 w-32 rounded-lg object-cover"
                   style={{ minHeight: "128px", minWidth: "128px" }}
